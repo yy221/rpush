@@ -1,0 +1,16 @@
+cron:
+- description: weekly summary job
+  url: /tasks/weekly
+  schedule: every monday 00:10
+- description: weekly summary job2
+  url: /tasks/weekly2
+  schedule: every monday 00:20
+- description: weekly summary job3
+  url: /tasks/weekly3
+  schedule: every monday 00:30
+- description: weekly summary job4
+  url: /tasks/weekly4
+  schedule: every monday 00:40
+- description: weekly summary job5
+  url: /tasks/weekly5
+  schedule: every monday 00:50
