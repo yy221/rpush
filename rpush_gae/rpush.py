@@ -17,20 +17,16 @@ url_map = {
         '/tasks/weekly': [
 "http://blog.codingnow.com/atom.xml" ,
 "http://coolshell.cn/feed" ,
-"http://www.newsmth.net/rssi.php?h=1" ,
+"http://www.ruanyifeng.com/blog/atom.xml" ,
 "http://www.hexblog.com/?feed=rss2" ,
-"http://blog.qt.digia.com/",
 "http://syndication.thedailywtf.com/TheDailyWtf"  ],
 
         '/tasks/weekly2': [
 "http://www.matrix67.com/blog/feed.asp" ,
 "http://feed.feedsky.com/aqee-net",
 "http://feed.feedsky.com/programmer" ,
-"http://feed.feedsky.com/2maomao" ,
-"http://feed.feedsky.com/programlife" ,
 "http://feed.feedsky.com/valleytalk" ,
-"http://it.oyksoft.com/feed.php" ,
-"http://www.nooidea.com/feed"  ],
+],
 
         '/tasks/weekly3': [
 "http://www.huxiu.com/rss/0.xml" ,
@@ -42,8 +38,7 @@ url_map = {
 "http://www.joelonsoftware.com/rss.xml" ,
 "http://blog.jobbole.com/feed/" ,
 "http://shixian.net/?feed=rss2" ,
-"http://blog.sina.com.cn/rss/1569777711.xml" ,
-"http://blog.sina.com.cn/rss/1547596314.xml"  ],
+],
 
         '/tasks/weekly5': [
 "http://www.36kr.com/feed" ,
