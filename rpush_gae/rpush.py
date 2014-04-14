@@ -7,6 +7,7 @@ import logging
 import feedparser
 import StringIO
 #import webapp2
+import cmdline.py
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.api import users
@@ -17,12 +18,10 @@ url_map = {
         '/tasks/weekly': [
 "http://blog.codingnow.com/atom.xml" ,
 "http://coolshell.cn/feed" ,
-"http://www.ruanyifeng.com/blog/atom.xml" ,
-"http://www.hexblog.com/?feed=rss2" ,
-"http://syndication.thedailywtf.com/TheDailyWtf"  ],
+"http://www.ruanyifeng.com/blog/atom.xml" ],
 
         '/tasks/weekly2': [
-"http://www.matrix67.com/blog/feed.asp" ,
+# "http://www.matrix67.com/blog/feed.asp" ,
 "http://feed.feedsky.com/aqee-net",
 "http://feed.feedsky.com/programmer" ,
 "http://feed.feedsky.com/valleytalk" ,
@@ -35,26 +34,28 @@ url_map = {
 "http://www.huxiu.com/rss/6.xml"  ],
 
         '/tasks/weekly4': [
-"http://www.joelonsoftware.com/rss.xml" ,
 "http://blog.jobbole.com/feed/" ,
-"http://shixian.net/?feed=rss2" ,
+"http://www.joelonsoftware.com/rss.xml" ,
+"http://syndication.thedailywtf.com/TheDailyWtf"  
+# "http://shixian.net/?feed=rss2" ,
 ],
 
         '/tasks/weekly5': [
 "http://www.36kr.com/feed" ,
 "http://www.ifanr.com/feed" ,
-"http://cn.engadget.com/rss.xml" ]
+# "http://cn.engadget.com/rss.xml" 
+]
         }
 
 def parseFeed (f, url):
-        try:
-            d = feedparser.parse (url)
-            title = d['feed']['title']
-            f.write ( '<p>TITLE:<a href="%s"><B>%s</B></a></p>' %(url, title) )
-            for entry in d.entries:
-                f.write ( '<p><a href="%s">%s</a></p>' %(entry.link, entry.title))
-        except:
-            f.write( '<p>exception:%s</p>' %(url) )
+    try:
+        d = feedparser.parse (url)
+        title = d['feed']['title']
+        f.write ( '<p>TITLE:<a href="%s"><B>%s</B></a></p>' %(url, title) )
+        for entry in d.entries:
+            f.write ( '<p><a href="%s">%s</a></p>' %(entry.link, entry.title))
+    except:
+        f.write( '<p>exception:%s</p>' %(url) )
 
 def sendMail (ctx):
     # logging.info (ctx)
@@ -77,6 +78,28 @@ def sendMail (ctx):
               #,html=ctx
               )
     """
+class TwitterCallback(webapp.RequestHandler):
+    def get(self):
+        logging.info ('TwitterCallback %s' %(self) )
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write ('ok: %s' %(self.request.path) );
+
+class TwitterPush (webapp.RequestHandler):
+    def get(self):
+        logging.info ('TwitterPush %s' %(self) )
+        ioctx = StringIO.StringIO();
+
+        try:
+            ret = twitter_main ():
+            ioctx.write ( '%s' %(ret) )
+        except:
+            ioctx.write( 'exception found.' )
+
+        sendMail ( ioctx.getvalue() )
+        ioctx.close()
+
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write ('send mail ok: %s' %(self.request.path) );
 
 #just for simple pass GFW to get one html page !
 class OncePage(webapp.RequestHandler):
@@ -134,6 +157,8 @@ application = webapp.WSGIApplication( [
     ('/tasks/weekly4', TaskPage  ),
     ('/tasks/weekly5', TaskPage  ),
     ('/tasks/once', OncePage  ),
+    ('/t_callback', TwitterCallback  ),
+    ('/t', TwitterPush  ),
     ], debug=True)
 
 def main():

@@ -1,5 +1,7 @@
 *.py[cod]
 
+.twitter_oauth
+
 # C extensions
 *.so
 
