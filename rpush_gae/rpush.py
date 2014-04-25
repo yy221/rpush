@@ -43,6 +43,7 @@ url_map = {
         '/tasks/weekly5': [
 "http://www.36kr.com/feed" ,
 "http://www.ifanr.com/feed" ,
+"http://feeds.feedburner.com/Torrentfreak",
 # "http://cn.engadget.com/rss.xml" 
 ]
         }
