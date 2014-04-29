@@ -7,7 +7,7 @@ import logging
 import feedparser
 import StringIO
 #import webapp2
-import cmdline.py
+import cmdline
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.api import users
@@ -91,7 +91,7 @@ class TwitterPush (webapp.RequestHandler):
         ioctx = StringIO.StringIO();
 
         try:
-            ret = twitter_main ():
+            ret = twitter_main ()
             ioctx.write ( '%s' %(ret) )
         except:
             ioctx.write( 'exception found.' )
