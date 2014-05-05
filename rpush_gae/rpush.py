@@ -36,14 +36,15 @@ url_map = {
         '/tasks/weekly4': [
 "http://blog.jobbole.com/feed/" ,
 "http://www.joelonsoftware.com/rss.xml" ,
-"http://syndication.thedailywtf.com/TheDailyWtf"  
+"http://syndication.thedailywtf.com/TheDailyWtf",
+"http://blog.knownsec.com/"
 # "http://shixian.net/?feed=rss2" ,
 ],
 
         '/tasks/weekly5': [
 "http://www.36kr.com/feed" ,
 "http://www.ifanr.com/feed" ,
-"http://feeds.feedburner.com/Torrentfreak",
+"http://feeds.feedburner.com/Torrentfreak"
 # "http://cn.engadget.com/rss.xml" 
 ]
         }
