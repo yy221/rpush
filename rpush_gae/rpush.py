@@ -62,7 +62,7 @@ def sendMail (ctx):
     # logging.info (ctx)
 
     kw = {}
-    kw['sender'] = 'qsoft9@gmail.com'
+    kw['sender'] = 'chliu027028@gmail.com'
     kw['to'] = 'rpush@qq.com'
     kw['subject'] = 'daily rss feeds'
     kw['body'] = ' '
@@ -72,7 +72,7 @@ def sendMail (ctx):
     mail.send ();
 
     """
-    mail.send_mail(sender='qsoft9@gmail.com',
+    mail.send_mail(sender='chliu027028@gmail.com',
               to='rpush@qq.com',
               subject='daily rss feeds',
               body=ctx
