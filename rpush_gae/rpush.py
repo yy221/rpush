@@ -45,14 +45,14 @@ url_map = {
 "http://www.ifanr.com/feed" ,
 "http://feeds.feedburner.com/Torrentfreak"
 # "http://cn.engadget.com/rss.xml" 
-]
+],
 
         '/tasks/weekly6': [
 "http://blog.knownsec.com/feed/",
 "http://security.tencent.com/index.php/feed/blog/0",
-"http://feeds.feedburner.com/TalkTechToMe-All"
+"http://feeds.feedburner.com/TalkTechToMe-All",
 "http://lcx.cc/?a=rss",
-]
+],
 
         }
 
