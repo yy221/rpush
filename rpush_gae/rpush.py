@@ -36,8 +36,7 @@ url_map = {
         '/tasks/weekly4': [
 "http://blog.jobbole.com/feed/" ,
 "http://www.joelonsoftware.com/rss.xml" ,
-"http://syndication.thedailywtf.com/TheDailyWtf",
-"http://blog.knownsec.com/"
+"http://syndication.thedailywtf.com/TheDailyWtf"
 # "http://shixian.net/?feed=rss2" ,
 ],
 
@@ -47,6 +46,14 @@ url_map = {
 "http://feeds.feedburner.com/Torrentfreak"
 # "http://cn.engadget.com/rss.xml" 
 ]
+
+        '/tasks/weekly6': [
+"http://blog.knownsec.com/feed/",
+"http://security.tencent.com/index.php/feed/blog/0",
+"http://feeds.feedburner.com/TalkTechToMe-All"
+"http://lcx.cc/?a=rss",
+]
+
         }
 
 def parseFeed (f, url):
@@ -158,6 +165,7 @@ application = webapp.WSGIApplication( [
     ('/tasks/weekly3', TaskPage  ),
     ('/tasks/weekly4', TaskPage  ),
     ('/tasks/weekly5', TaskPage  ),
+    ('/tasks/weekly6', TaskPage  ),
     ('/tasks/once', OncePage  ),
     ('/t_callback', TwitterCallback  ),
     ('/t', TwitterPush  ),
