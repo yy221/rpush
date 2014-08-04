@@ -17,3 +17,6 @@ cron:
 - description: weekly summary job6
   url: /tasks/weekly6
   schedule: every monday 01:00
+- description: weekly summary job7
+  url: /tasks/weekly7
+  schedule: every monday 01:10

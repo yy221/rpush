@@ -18,7 +18,8 @@ url_map = {
         '/tasks/weekly': [
 "http://blog.codingnow.com/atom.xml" ,
 "http://coolshell.cn/feed" ,
-"http://www.ruanyifeng.com/blog/atom.xml" ],
+"http://www.ruanyifeng.com/blog/atom.xml",
+],
 
         '/tasks/weekly2': [
 # "http://www.matrix67.com/blog/feed.asp" ,
@@ -31,29 +32,34 @@ url_map = {
 "http://www.huxiu.com/rss/0.xml" ,
 "http://www.huxiu.com/rss/1.xml" ,
 "http://www.huxiu.com/rss/4.xml" ,
-"http://www.huxiu.com/rss/6.xml"  ],
+"http://www.huxiu.com/rss/6.xml" ,
+],
 
         '/tasks/weekly4': [
 "http://blog.jobbole.com/feed/" ,
 "http://www.joelonsoftware.com/rss.xml" ,
-"http://syndication.thedailywtf.com/TheDailyWtf"
+"http://syndication.thedailywtf.com/TheDailyWtf",
 # "http://shixian.net/?feed=rss2" ,
 ],
 
         '/tasks/weekly5': [
 "http://www.36kr.com/feed" ,
 "http://www.ifanr.com/feed" ,
-"http://feeds.feedburner.com/Torrentfreak"
 # "http://cn.engadget.com/rss.xml" 
 ],
 
         '/tasks/weekly6': [
-"http://blog.knownsec.com/feed/",
 "http://security.tencent.com/index.php/feed/blog/0",
-"http://feeds.feedburner.com/TalkTechToMe-All",
-"http://lcx.cc/?a=rss",
+"http://blog.knownsec.com/feed/",
+"http://drops.wooyun.org/feed",
+"http://www.91ri.org/feed",
 ],
 
+        '/tasks/weekly7': [
+"http://feeds.feedburner.com/Torrentfreak",
+"http://feeds.feedburner.com/webarch?format=xml",
+"http://feeds.feedburner.com/TalkTechToMe-All",
+],
         }
 
 def parseFeed (f, url):
@@ -166,6 +172,7 @@ application = webapp.WSGIApplication( [
     ('/tasks/weekly4', TaskPage  ),
     ('/tasks/weekly5', TaskPage  ),
     ('/tasks/weekly6', TaskPage  ),
+    ('/tasks/weekly7', TaskPage  ),
     ('/tasks/once', OncePage  ),
     ('/t_callback', TwitterCallback  ),
     ('/t', TwitterPush  ),
